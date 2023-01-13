@@ -1,9 +1,9 @@
 import requests, json,re
 
 
-
-#这里是cookie
-cookie ='uid=18609; email=wm3225579752%40outlook.com; key=beae8f20751f7102ffefdc9cce4877d505bd35c527db4; ip=533c663251d318d9d1df3f7a5cfb416f; expire_in=1673682858'
+#这是修改为登录https://fenda.cloud/user后的cookie
+#最好使用无痕模式抓cookie
+cookie =''
 
 url_info = 'https://fenda.cloud/user/profile'
 url = 'https://fenda.cloud/user/checkin'
@@ -17,5 +17,6 @@ result = json.loads(html.text)['msg']
 info = "".join(re.findall('<span class="user-name text-bold-600">(.*?)</span>', html_info, re.S))
 content=info+'\n'+result
 print(content)
-
-requests.post("https://sctapi.ftqq.com/SCT180477TOZkGM0Zqetd8Oyy4Y6QPp37J.send?title={}&desp={}".format("fenda签到",content))
+#这是server酱的推送方式：https://sct.ftqq.com/
+#将【sendkey】整体替换为你的sendkey
+requests.post("https://sctapi.ftqq.com/【sendkey】.send?title={}&desp={}".format("fenda签到",content))

@@ -9,7 +9,9 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron: 10 6 * * * 
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '30 11 * * *' 
+
 
 jobs:
   build:

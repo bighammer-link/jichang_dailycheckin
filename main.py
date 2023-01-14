@@ -9,7 +9,7 @@ url_info = 'https://fenda.cloud/user/profile'
 url = 'https://fenda.cloud/user/checkin'
 headers = {
     'cookie': f'{cookie}',
-    'user-agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36 Edg/87.0.664.47',
 }
 html_info = requests.get(url=url_info, headers=headers).text
 html = requests.post(url=url, headers=headers)

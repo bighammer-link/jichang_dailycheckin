@@ -3,7 +3,7 @@ import requests, json,re
 
 
 #这里是cookie
-cookie ='uid=18609; email=wm3225579752%40outlook.com; key=beae8f20751f7102ffefdc9cce4877d505bd35c527db4; ip=533c663251d318d9d1df3f7a5cfb416f; expire_in=1673682858'
+cookie ='uid=18609; email=wm3225579752%40outlook.com; key=4e44d97149d12434518c58c089b1bf45ba73540de437d; ip=a9cf7b85bd220d7eb3311336d7bab74b; expire_in=1674300595'
 
 url_info = 'https://fenda.cloud/user/profile'
 url = 'https://fenda.cloud/user/checkin'

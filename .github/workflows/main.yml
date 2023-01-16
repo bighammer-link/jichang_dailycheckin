@@ -5,12 +5,9 @@ name: fenda_checkin
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '20 12 * * *' 
+    - cron: '0 21 * * *' 
 
 
 jobs:

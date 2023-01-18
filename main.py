@@ -1,4 +1,7 @@
-import requests, json,re
+import requests
+import json
+import re
+import os
 
 SCKEY = os.environ.get('SCKEY')
 

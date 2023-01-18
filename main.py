@@ -4,7 +4,7 @@ SCKEY = os.environ.get('SCKEY')
 
 
 # 这是获取登录https://fenda.cloud/user后的cookie
-cookie == os.environ.get('COOKIE')
+cookie = os.environ.get('COOKIE')
 
 
 url_info = 'https://fenda.cloud/user/profile'

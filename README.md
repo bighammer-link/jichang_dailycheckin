@@ -1,6 +1,6 @@
 # fenda每日签到
 <a href="https://fenda.cloud/" target="_blank">纷达网络<a><br/>
-这个脚本只适合这一个机场，如果是其他机场可以在main.py中修改url_info和url即可
+这个脚本只适合这一个机场😥😥😥😥
 ## 推送
   该脚本采用的是server酱的推送方式
 

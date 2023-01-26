@@ -1,6 +1,6 @@
 # fenda每日签到
 <a href="https://fenda.cloud/" target="_blank">纷达网络<a><br/>
-这个脚本只适合这一个机场😥😥😥😥
+这个脚本只适合这一个机场😥😥😥😥，当时只是自己拿来用，就写个这一个机场的。我又写了一个通用的（机场只要Powered by SSPANEL就可以，），请移步<a href = ''>此处</a>
 ## 推送
   该脚本采用的是server酱的推送方式
 

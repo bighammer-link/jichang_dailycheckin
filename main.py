@@ -1,27 +1,44 @@
-import requests
-import json
-import re
-import os
+import requests, json, re, os
 
+session = requests.session()
+# 配置用户名（一般是邮箱）
+email = os.environ.get('EMAIL')
+# 配置用户名对应的密码 和上面的email对应上
+passwd = os.environ.get('PASSWD')
+# server酱
 SCKEY = os.environ.get('SCKEY')
 
+login_url = 'https://fenda.cloud/auth/login'
+check_url = 'https://fenda.cloud/user/checkin'
+info_url = 'https://fenda.cloud/user/profile'
 
-# 这是获取登录https://fenda.cloud/user后的cookie
-cookie = os.environ.get('COOKIE')
-
-
-url_info = 'https://fenda.cloud/user/profile'
-url = 'https://fenda.cloud/user/checkin'
-headers = {
-    'cookie': f'{cookie}',
-    'user-agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
+header = {
+        'origin': 'https://fenda.cloud',
+        'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
 }
-
-html_info = requests.get(url=url_info, headers=headers).text
-html = requests.post(url=url, headers=headers)
-result = json.loads(html.text)['msg']
-info = "".join(re.findall('<span class="user-name text-bold-600">(.*?)</span>', html_info, re.S))  # 获取账户名称
-content=info+'\n'+result
-print(content)
-# 这是server酱的推送方式：https://sct.ftqq.com/
-requests.post("https://sctapi.ftqq.com/{}.send?title={}&desp={}".format(SCKEY,"fenda签到",content))
+data = {
+        'email': email,
+        'passwd': passwd
+}
+try:
+    # print('进行登录...')
+    response = json.loads(session.post(url=login_url,headers=header,data=data).text)
+    # print(response['msg'])
+    # 获取账号名称
+    info_html = session.get(url=info_url,headers=header).text
+    info = "".join(re.findall('<span class="user-name text-bold-600">(.*?)</span>', info_html, re.S))
+    print(info)
+    # 进行签到
+    result = json.loads(session.post(url=check_url,headers=header).text)
+    print(result['msg'])
+    content = info+'\n\n'+result['msg']
+    # 进行推送
+    if SCKEY != '':
+        push_url = 'https://sctapi.ftqq.com/{}.send?title=fenda签到&desp={}'.format(SCKEY, content)
+        requests.post(url=push_url)
+except:
+    content = '签到失败'
+    print(content)
+    if SCKEY != '':
+        push_url = 'https://sctapi.ftqq.com/{}.send?title=fenda签到&desp={}'.format(SCKEY, content)
+        requests.post(url=push_url)

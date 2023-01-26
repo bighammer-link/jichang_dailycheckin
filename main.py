@@ -21,9 +21,9 @@ data = {
         'passwd': passwd
 }
 try:
-    # print('进行登录...')
+    print('进行登录...')
     response = json.loads(session.post(url=login_url,headers=header,data=data).text)
-    # print(response['msg'])
+    print(response['msg'])
     # 获取账号名称
     info_html = session.get(url=info_url,headers=header).text
     info = "".join(re.findall('<span class="user-name text-bold-600">(.*?)</span>', info_html, re.S))
@@ -36,6 +36,7 @@ try:
     if SCKEY != '':
         push_url = 'https://sctapi.ftqq.com/{}.send?title=fenda签到&desp={}'.format(SCKEY, content)
         requests.post(url=push_url)
+        print('推送成功')
 except:
     content = '签到失败'
     print(content)

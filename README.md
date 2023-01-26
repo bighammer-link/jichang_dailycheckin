@@ -9,9 +9,10 @@
 1. 右上角Fork此仓库
 2. 然后到`Settings`→`Secrets and variables`→`Actions` 新建以下参数：
 
-| 参数  | 是否必须  | 内容  | 
+| 参数   | 是否必须  | 内容  | 
 | ------------ | ------------ | ------------ |
-| COOKIE  | 是  | 你登录机场后抓取的COOKIE  |
+| EMAIL  | 是  | 账号邮箱  |
+| PASSWD | 否  | 账号密码  |
 | SCKEY  | 否  | Sever酱秘钥  |
 
 3. 到`Actions`中创建一个workflow，运行一次，以后每天项目都会自动运行。

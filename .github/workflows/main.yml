@@ -39,4 +39,4 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWD: ${{ secrets.PASSWD }}
         run: |
-          # python3 ./main.py
+          python3 ./main.py

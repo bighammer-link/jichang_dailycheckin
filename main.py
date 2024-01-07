@@ -7,13 +7,26 @@ email = os.environ.get('EMAIL')
 passwd = os.environ.get('PASSWD')
 # server酱
 SCKEY = os.environ.get('SCKEY')
+Token = os.environ.get('Token')
+def push(content):
+    if SCKEY != '':
+        url = "https://sctapi.ftqq.com/{}.send?title={}&desp={}".format(SCKEY, 'ikuuu签到', content)
+        requests.post(url)
+        print('推送完成')
+    elif Token != '':
+        headers = {'Content-Type': 'application/json'}
+        json = {"token": Token, 'title': 'ikuuu签到', 'content': content, "template": "json"}
+        resp = requests.post(f'http://www.pushplus.plus/send', json=json, headers=headers).json()
+        print('push+推送成功' if resp['code'] == 200 else 'push+推送失败')
+    else:
+        print('未使用消息推送推送！')
 # 会不定时更新域名，记得Sync fork
 login_url = 'https://ikuuu.me/auth/login'
 check_url = 'https://ikuuu.me/user/checkin'
 info_url = 'https://ikuuu.me/user/profile'
 
 header = {
-        'origin': 'https://ikuuu.art',
+        'origin': 'https://ikuuu.me',
         'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
 }
 data = {
@@ -33,13 +46,8 @@ try:
     print(result['msg'])
     content = result['msg']
     # 进行推送
-    if SCKEY != '':
-        push_url = 'https://sctapi.ftqq.com/{}.send?title=ikuuu自动签到任务提示&desp={}'.format(SCKEY, content)
-        requests.post(url=push_url)
-        print('推送成功')
+   push(content)
 except:
     content = '签到失败'
     print(content)
-    if SCKEY != '':
-        push_url = 'https://sctapi.ftqq.com/{}.send?title=ikuuu自动签到任务提示&desp={}'.format(SCKEY, content)
-        requests.post(url=push_url)
+    push(content)

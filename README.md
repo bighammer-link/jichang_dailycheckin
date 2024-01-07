@@ -4,7 +4,7 @@
 ## 推送
   该脚本可选择采用<a href='https://sct.ftqq.com/'>server酱</a>和<a href = 'https://www.pushplus.plus/'>pushplus</a>的推送方式
   <br/>想使用哪一种推送方式就将密钥填入下方参数，并将另一参数赋值为 <b>1</b>
-  <br/>如若不想使用推送，请假下面的SCKEY和Token参数全部赋值为<b>1</b>
+  <br/>如若不想使用推送，请假下面的SCKEY和TOKEN参数全部赋值为<b>1</b>
   
 
 # 部署过程
@@ -17,7 +17,7 @@
 | EMAIL  |  账号邮箱  |
 | PASSWD |  账号密码  |
 | SCKEY  |  Sever酱密钥  |
-| Token  |  pushplus密钥  |
+| TOKEN  |  pushplus密钥  |
 
 3. 到`Actions`中创建一个workflow，运行一次，以后每天项目都会自动运行。
 4. 最后，可以到Run sign查看签到情况，同时也会也会将签到详情推送到Sever酱。

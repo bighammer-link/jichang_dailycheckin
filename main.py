@@ -7,7 +7,7 @@ email = os.environ.get('EMAIL')
 passwd = os.environ.get('PASSWD')
 # server酱
 SCKEY = os.environ.get('SCKEY')
-
+# 会不定时更新域名，记得Sync fork
 login_url = 'https://ikuuu.me/auth/login'
 check_url = 'https://ikuuu.me/user/checkin'
 info_url = 'https://ikuuu.me/user/profile'

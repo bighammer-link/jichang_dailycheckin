@@ -7,6 +7,7 @@ email = os.environ.get('EMAIL')
 passwd = os.environ.get('PASSWD')
 # server酱
 SCKEY = os.environ.get('SCKEY')
+# PUSHPLUS
 Token = os.environ.get('TOKEN')
 def push(content):
     if SCKEY != '1':

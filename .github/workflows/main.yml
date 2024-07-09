@@ -1,8 +1,8 @@
-name: "Airport Checkin"
+name: "Common airport Checkin 2"
 
 on:
   schedule:
-    - cron: "0 22 * * *"  # scheduled at 06:00 (UTC+8) everyday
+    - cron: "10 22 * * *"  # scheduled at 06:10 (UTC+8) everyday
   workflow_dispatch:
 
 env:
@@ -15,19 +15,19 @@ jobs:
 
     steps:
       - name: Checkout master
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           # ref: master
 
       - name: Set up python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: 3.7
 
       - name: Random sleep
         if: github.event_name == 'schedule'
-        run: sleep $(shuf -i 10-100 -n 1)
+        run: sleep $(shuf -i 10-300 -n 1)
 
       - name: Install dependencies
         run: |
@@ -35,8 +35,9 @@ jobs:
           pip install -r requirements.txt
       - name: Run sign
         env:
+          URL: ${{ secrets.URL_G }}
           SCKEY: ${{ secrets.SCKEY }}
-          EMAIL: ${{ secrets.EMAIL }}
-          PASSWD: ${{ secrets.PASSWD }}
+          EMAIL: ${{ secrets.EMAIL_G }}
+          PASSWD: ${{ secrets.PASSWD_G }}
         run: |
           python3 ./main.py

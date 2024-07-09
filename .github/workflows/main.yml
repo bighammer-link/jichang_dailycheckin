@@ -1,12 +1,13 @@
-name: "Common airport Checkin 2"
+name: Airport Checkin
 
 on:
   schedule:
-    - cron: "10 22 * * *"  # scheduled at 06:10 (UTC+8) everyday
+    - cron: "0 22 * * *"   # scheduled at 06:00 (UTC+8) everyday
   workflow_dispatch:
 
 env:
   RUN_ENV: 'prod'
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true  # 添加此行以允许使用Node.js 12
 
 jobs:
   build:
@@ -15,29 +16,29 @@ jobs:
 
     steps:
       - name: Checkout master
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
           # ref: master
 
       - name: Set up python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v2
         with:
           python-version: 3.7
 
       - name: Random sleep
         if: github.event_name == 'schedule'
-        run: sleep $(shuf -i 10-300 -n 1)
+        run: sleep $(shuf -i 10-100 -n 1)
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: Run sign
         env:
-          URL: ${{ secrets.URL_G }}
           SCKEY: ${{ secrets.SCKEY }}
-          EMAIL: ${{ secrets.EMAIL_G }}
-          PASSWD: ${{ secrets.PASSWD_G }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWD: ${{ secrets.PASSWD }}
         run: |
           python3 ./main.py

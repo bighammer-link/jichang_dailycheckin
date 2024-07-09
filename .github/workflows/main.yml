@@ -21,7 +21,7 @@ jobs:
           # ref: master
 
       - name: Set up python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: 3.7
 

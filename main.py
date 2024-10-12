@@ -29,7 +29,7 @@ check_url = 'https://ikuuu.pw/user/checkin'
 info_url = 'https://ikuuu.pw/user/profile'
 
 header = {
-        'origin': 'https://ikuuu.me',
+        'origin': 'https://ikuuu.pw',
         'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
 }
 data = {

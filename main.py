@@ -6,8 +6,8 @@ session = requests.session()
 # 配置用户名对应的密码 和上面的email对应上
 # passwd = os.environ.get('PASSWD')
 # 从环境变量中读取多个邮箱和密码
-emails = os.environ.get('EMAILS', '').split(',')
-passwords = os.environ.get('PASSWDS', '').split(',')
+emails = os.environ.get('EMAIL', '').split(',')
+passwords = os.environ.get('PASSWD', '').split(',')
 
 # server酱
 SCKEY = os.environ.get('SCKEY')

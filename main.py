@@ -42,22 +42,22 @@ for email, passwd in zip(emails, passwords):
     data = {
         'email': email,
         'passwd': passwd
-}
-try:
-    print(f'[{data}] 进行登录...')
-    response = json.loads(session.post(url=login_url,headers=header,data=data).text)
-    print(response['msg'])
-    # 获取账号名称
-    info_html = session.get(url=info_url,headers=header).text
-    #     info = "".join(re.findall('<span class="user-name text-bold-600">(.*?)</span>', info_html, re.S))
-    #     print(info)
-    # 进行签到
-    result = json.loads(session.post(url=check_url,headers=header).text)
-    print(result['msg'])
-    content = result['msg']
-    # 进行推送
-    push(content)
-except:
-    content = '签到失败'
-    print(content)
-    push(content)
+    }
+    try:
+        print(f'[{email}] 进行登录...')
+        response = json.loads(session.post(url=login_url,headers=header,data=data).text)
+        print(response['msg'])
+        # 获取账号名称
+        info_html = session.get(url=info_url,headers=header).text
+        #     info = "".join(re.findall('<span class="user-name text-bold-600">(.*?)</span>', info_html, re.S))
+        print(获取账号名称 [{info_html}])
+        # 进行签到
+        result = json.loads(session.post(url=check_url,headers=header).text)
+        print(result['msg'])
+        content = result['msg']
+        # 进行推送
+        push(content)
+    except:
+        content = '签到失败'
+        print(content)
+        push(content)

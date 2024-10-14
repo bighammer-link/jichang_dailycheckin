@@ -14,10 +14,10 @@
 
 | 参数   |  内容  | 
 | ------------ |  ------------ |
-| EMAIL  |  账号邮箱  |
-| PASSWD |  账号密码  |
-| SCKEY  |  Sever酱密钥  |
-| TOKEN  |  pushplus密钥  |
+| EMAIL  |  账号邮箱  |  Variables
+| PASSWD |  账号密码  |  Variables
+| SCKEY  |  Sever酱密钥  |  Secrets
+| TOKEN  |  pushplus密钥  |  Secrets
 
 3. 到`Actions`中创建一个workflow，运行一次，以后每天项目都会自动运行。
 4. 最后，可以到Run sign查看签到情况，同时也会也会将签到详情推送到Sever酱。

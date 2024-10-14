@@ -44,7 +44,7 @@ for email, passwd in zip(emails, passwords):
         'passwd': passwd
 }
 try:
-    print(f'[{email}] 进行登录...')
+    print(f'[{data}] 进行登录...')
     response = json.loads(session.post(url=login_url,headers=header,data=data).text)
     print(response['msg'])
     # 获取账号名称

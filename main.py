@@ -5,7 +5,7 @@ session = requests.session()
 # email = os.environ.get('EMAIL')
 # 配置用户名对应的密码 和上面的email对应上
 # passwd = os.environ.get('PASSWD')
-# 从环境变量中读取多个邮箱和密码
+# 从设置的环境变量中的Variables多个邮箱和密码 ,分割
 emails = os.environ.get('EMAIL', '').split(',')
 passwords = os.environ.get('PASSWD', '').split(',')
 
@@ -48,9 +48,8 @@ for email, passwd in zip(emails, passwords):
         response = json.loads(session.post(url=login_url,headers=header,data=data).text)
         print(response['msg'])
         # 获取账号名称
-        info_html = session.get(url=info_url,headers=header).text
-        #     info = "".join(re.findall('<span class="user-name text-bold-600">(.*?)</span>', info_html, re.S))
-        print(获取账号名称 [{info_html}])
+        # info_html = session.get(url=info_url,headers=header).text
+        # info = "".join(re.findall('<span class="user-name text-bold-600">(.*?)</span>', info_html, re.S))
         # 进行签到
         result = json.loads(session.post(url=check_url,headers=header).text)
         print(result['msg'])

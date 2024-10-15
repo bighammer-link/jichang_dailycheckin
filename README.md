@@ -12,12 +12,12 @@
 1. 右上角Fork此仓库
 2. 然后到`Settings`→`Secrets and variables`→`Actions` 新建以下参数：
 
-| 参数   |  内容  | 
-| ------------ |  ------------ |
-| EMAIL  |  账号邮箱  |
-| PASSWD |  账号密码  |
-| SCKEY  |  Sever酱密钥  |
-| TOKEN  |  pushplus密钥  |
+| 参数   |  内容  |  变量类型  | 
+| ------------ |  ------------ |  ------------ |
+| EMAIL  |  账号邮箱  |  Variables  |
+| PASSWD |  账号密码  |  Variables  |
+| SCKEY  |  Sever酱密钥  |  Secrets  |
+| TOKEN  |  pushplus密钥  |  Secrets  |
 
 3. 到`Actions`中创建一个workflow，运行一次，以后每天项目都会自动运行。
 4. 最后，可以到Run sign查看签到情况，同时也会也会将签到详情推送到Sever酱。

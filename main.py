@@ -28,9 +28,9 @@ def push(content):
 
 # 会不定时更新域名，记得Sync fork
 
-login_url = 'https://ikuuu.one/auth/login'
-check_url = 'https://ikuuu.one/user/checkin'
-info_url = 'https://ikuuu.one/user/profile'
+login_url = 'https://ikuuu.de/auth/login'
+check_url = 'https://ikuuu.de/user/checkin'
+info_url = 'https://ikuuu.de/user/profile'
 
 header = {
         'origin': 'https://ikuuu.one',
